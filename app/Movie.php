@@ -8,11 +8,11 @@ class Movie extends Model
 {
   public $guarded = [];
 
-  public function Actors(){
+  public function actors(){
     return $this->belongsToMany(Actor::class, 'actor_movie', 'movie_id', 'actor_id');
   }
 
-  public function Genres(){
+  public function genres(){
     return $this->belongsTo(Genre::class, 'genre_id');
   }
 }

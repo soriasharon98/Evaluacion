@@ -8,7 +8,7 @@ class Genre extends Model
 {
   public $guarded = [];
 
-  public function Movies(){
+  public function movies(){
     return $this-> hasMany(Movie::class, 'genre_id');
   }
 }

@@ -17,7 +17,23 @@ class MovieController extends Controller
     return view('detalleMovies', compact('movieSelect'));
 }
 
-    public function editarMovies(){
-      
+    public function selectEdit($id){
+    $selectEdit = Movie::find($id);
+    return view('editarMovies', compact('selectEdit'));
+
+}
+    public function editarMovies(Request $datos){
+      $editarMovies = Movie::find($datos->id);
+
+      $editarMovies->title = $datos['title'];
+      $editarMovies->rating = $datos['rating'];
+      $editarMovies->awards = $datos['awards'];
+      $editarMovies->length = $datos['length'];
+      $editarMovies->release_date = $datos['release_date'];
+      $editarMovies->genre_id = $datos['genre_id'];
+
+      $editarMovies-> save();
+
+      return redirect('/movie');
     }
 }

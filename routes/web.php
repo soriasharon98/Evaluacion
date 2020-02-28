@@ -36,3 +36,7 @@ Route::get('/agregarActors', function(){
 });
 
 Route::post('/agregarActors', 'ActorController@agregarActors');
+
+Route::get('/movie/{id}/editarMovies', 'MovieController@selectEdit');
+
+Route::post('/movie/{id}/editarMovies', 'MovieController@editarMovies');
